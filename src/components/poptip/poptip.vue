@@ -17,7 +17,7 @@
                 :class="popperClasses"
                 :style="styles"
                 ref="popper"
-                v-show="visible"
+                v-show="!disabled && (visible || always)"
                 @click="handleTransferClick"
                 @mouseenter="handleMouseenter"
                 @mouseleave="handleMouseleave"
@@ -87,7 +87,7 @@
             },
             confirm: {
                 type: Boolean,
-                default: false
+                default: false 
             },
             okText: {
                 type: String
@@ -100,6 +100,10 @@
                 default () {
                     return !this.$IVIEW || this.$IVIEW.transfer === '' ? false : this.$IVIEW.transfer;
                 }
+            },
+            always: {
+                type: Boolean,
+                default: false
             },
             popperClass: {
                 type: String
