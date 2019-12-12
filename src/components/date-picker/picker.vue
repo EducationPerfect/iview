@@ -27,7 +27,7 @@
                     @mouseenter.native="handleInputMouseenter"
                     @mouseleave.native="handleInputMouseleave"
                 >
-                    <Icon @click="handleIconClick" :type="arrowType" :custom="customArrowType" :size="arrowSize" slot="suffix" />
+                    <Icon @click="handleIconClick" :type="arrowType" :custom="customArrowType" :size="arrowSize" :slot="iconSlot" />
                 </i-input>
             </slot>
         </div>
@@ -214,6 +214,10 @@
             separator: {
                 type: String,
                 default: ' - '
+            },
+            iconSlot: {
+                type: String,
+                default: 'suffix'
             }
         },
         data(){
